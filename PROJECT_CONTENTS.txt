@@ -1,6 +1,0 @@
-DL GROUP TWO – CAVENDISH UNIVERSITY UGANDA LIBRARY MANAGEMENT SYSTEM
-
-This package includes the PHP application, images, SQL schema and sample data, query examples, ERD and testing checklist.
-Database name: library_db
-Project folder: library-system
-Local URL: http://localhost/library-system/
