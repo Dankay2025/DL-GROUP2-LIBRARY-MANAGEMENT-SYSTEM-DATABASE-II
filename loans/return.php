@@ -1,0 +1,5 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/../includes/auth_check.php';
+require_once __DIR__ . '/../includes/functions.php';
+post_only();if(!verify_csrf_token($_POST['csrf_token']??null)){set_flash('error','Session expired.');redirect('/loans/index.php');}$id=(int)($_POST['loan_id']??0);try{$pdo->beginTransaction();$s=$pdo->prepare('SELECT book_id,date_returned FROM loans WHERE loan_id=? FOR UPDATE');$s->execute([$id]);$loan=$s->fetch();if(!$loan||$loan['date_returned']!==null)throw new RuntimeException('Loan not found or already returned.');$pdo->prepare('UPDATE loans SET date_returned=CURRENT_DATE WHERE loan_id=?')->execute([$id]);$pdo->prepare('UPDATE books SET available_copies=available_copies+1 WHERE book_id=? AND available_copies<total_copies')->execute([$loan['book_id']]);$pdo->commit();set_flash('success','Book return recorded and available copies updated.');}catch(Throwable $e){if($pdo->inTransaction())$pdo->rollBack();set_flash('error',$e instanceof RuntimeException?$e->getMessage():'Unable to record this return.');}redirect('/loans/index.php');
