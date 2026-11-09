@@ -10,7 +10,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 define('APP_NAME', 'Cavendish University Library Management System');
-define('APP_URL', '/library-system'); // Change only if your project folder has another name.
+define('APP_URL', '/library-system/DL-GROUP2-LIBRARY-MANAGEMENT-SYSTEM-DATABASE-II');
 define('APP_ROOT', dirname(__DIR__));
 
 $dbHost = 'localhost';

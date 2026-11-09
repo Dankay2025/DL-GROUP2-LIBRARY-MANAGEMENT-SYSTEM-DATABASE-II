@@ -12,9 +12,9 @@
 3. Open `http://localhost/phpmyadmin/`.
 4. Create an empty database named `library_db` (collation `utf8mb4_general_ci`).
 5. Select `library_db` → **Import** → choose `database/library_db.sql` → **Go**. This script creates the eight tables and sample data. Do not import it over populated tables.
-6. Open `http://localhost/library-system/`.
+6. Open `http://localhost/library-system/DL-GROUP2-LIBRARY-MANAGEMENT-SYSTEM-DATABASE-II/`.
 
-XAMPP defaults are configured in `config/database.php`: host `localhost`, database `library_db`, user `root`, blank password. If your MySQL root account has a password, update `$dbPass` there. Keep the project folder name `library-system` unless you also update `APP_URL`.
+XAMPP defaults are configured in `config/database.php`: host `localhost`, database `library_db`, user `root`, blank password. If your MySQL root account has a password, update `$dbPass` there. The project is expected at `C:\xampp\htdocs\library-system\DL-GROUP2-LIBRARY-MANAGEMENT-SYSTEM-DATABASE-II`; if you move it, update `APP_URL` in `config/database.php`.
 
 ## Demonstration login
 - Username: `admin`
